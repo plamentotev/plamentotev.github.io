@@ -1,0 +1,22 @@
+title: Plamen Totev's Blog
+url: "https://plamentotev.github.io"
+author: Plamen Totev
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-optional-front-matter
+
+titles_from_headings:
+  strip_title: true
+  collections: true
+
+show_excerpts: true
+excerpt_separator: <!--more-->
+
+exclude:
+  - README.md
+  - articles
