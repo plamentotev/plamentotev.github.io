@@ -2,6 +2,17 @@ title: Plamen Totev's Blog
 url: "https://plamentotev.github.io"
 author: Plamen Totev
 
+twitter:
+  username: TotevPlamen
+  card: summary
+
+social:
+  name: Plamen Totev
+  links:
+    - https://github.com/plamentotev
+    - https://twitter.com/TotevPlamen
+    - https://www.linkedin.com/in/ptotev/
+
 theme: minima
 plugins:
   - jekyll-feed
