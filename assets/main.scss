@@ -1,0 +1,14 @@
+---
+# Jekyll will process the file only if it contains front matter
+---
+
+// import the theme style
+@import "minima";
+
+// AsciiDoc syntax highlight produces HTML that is not compatible with what Jekyll expects.
+// Each code block is nested within <div class="listingblock"><div class="content"><pre class="rouge highlight">.
+// .highlighter-rouge .highlight contains the style (background) for the code blocks, but we could not extends complex selectors.
+// So I've just copy pasted it here.
+.listingblock .rouge.highlight {
+    background: #eef;
+}
