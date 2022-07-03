@@ -1,0 +1,44 @@
+= Implementing Custom Actuator Endpoint
+Plamen Totev
+:demo-path: ../articles/java/spring-boot-actuator-demo
+:spring-boot-reference: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle
+
+Spring Boot provides {spring-boot-reference}/#actuator[actuator endpoints] that allows you to monitor or manage your application over JMX or HTTP. To add custom endpoint annotate Spring bean with `@Endpoint`.
+//more
+
+[source,java]
+....
+include::{demo-path}/src/main/java/org/example/demo/actuate/UptimeEndpoint.java[]
+....
+<1> `@Endpoint` marks the class as Actuator endpoint. For HTTP endpoints `id` specifies the path - `actuator/uptime` in this example.
+<2> `@ReadOperation` marks the method as read operation. You can also use `@WriteOperation` and `@DeleteOperation` for respectively write and delete operations.
+
+Accessing the endpoint:
+
+include::{demo-path}/target/generated-snippets/uptime/curl-request.adoc[]
+
+would return the uptime in JSON format:
+
+include::{demo-path}/target/generated-snippets/uptime/response-body.adoc[]
+
+For more information check the {spring-boot-reference}/#actuator.endpoints.implementing-custom[reference guide].
+
+== Troubleshooting
+
+=== The code does not compile
+
+Make sure that you have included the `starter-actuator` dependency:
+
+[source,xml,indent=0]
+....
+include::{demo-path}/pom.xml[tag=dependency]
+....
+
+=== /actuator/uptime returns 404 (Not Found)
+
+Due to {spring-boot-reference}/#actuator.endpoints.security[security considerations], most endpoint by default are disabled over HTTP. Make sure to enable them (after you read the docs):
+
+[source,properties]
+....
+include::{demo-path}/src/main/resources/application.properties[]
+....
