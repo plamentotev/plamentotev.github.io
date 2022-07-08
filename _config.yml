@@ -31,7 +31,7 @@ excerpt_separator: <!--more-->
 
 exclude:
   - README.md
-  - articles
+  - examples
 
 asciidoc:
   excerpt_separator: "\n//more\n"

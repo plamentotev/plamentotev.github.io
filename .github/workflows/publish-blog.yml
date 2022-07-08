@@ -18,7 +18,7 @@ jobs:
           key: cache-${{ hashFiles('**/Gemfile', '**/pom.xml') }}
           restore-keys: |
             cache-
-      - run: export JAVA_HOME="$JAVA_HOME_17_X64" && cd articles/java && mvn --batch-mode verify
+      - run: export JAVA_HOME="$JAVA_HOME_17_X64" && cd examples/java && mvn --batch-mode verify
       - uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
