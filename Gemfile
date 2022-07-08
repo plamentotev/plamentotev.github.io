@@ -9,6 +9,7 @@ group :jekyll_plugins do
     gem 'jekyll-sitemap', '~> 1.4'
     gem 'jekyll-titles-from-headings', '~> 0.5'
     gem 'jekyll-asciidoc', '~> 3.0'
+    gem 'webrick', '~> 1.7'
 end
 
 group :jekyll_themes do
