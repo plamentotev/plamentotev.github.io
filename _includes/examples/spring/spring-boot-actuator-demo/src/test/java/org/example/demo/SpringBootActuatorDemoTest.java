@@ -21,22 +21,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(RestDocumentationExtension.class)
 public class SpringBootActuatorDemoTest {
 
-	private MockMvc mockMvc;
+    private MockMvc mockMvc;
 
-	@BeforeEach
-	public void setUp(WebApplicationContext webApplicationContext, RestDocumentationContextProvider restDocumentation) {
-		MockMvcSnippetConfigurer configurer = documentationConfiguration(restDocumentation)
-			.snippets().withTemplateFormat(TemplateFormats.markdown());
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
-			.apply(configurer)
-			.build();
-	}
+    @BeforeEach
+    public void setUp(WebApplicationContext webApplicationContext, RestDocumentationContextProvider restDocumentation) {
+        MockMvcSnippetConfigurer configurer = documentationConfiguration(restDocumentation)
+            .snippets().withTemplateFormat(TemplateFormats.markdown());
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
+            .apply(configurer)
+            .build();
+    }
 
-	@Test
-	void getCurrentTimeEndpoint() throws Exception {
-		this.mockMvc.perform(get("/actuator/uptime"))
-			.andExpect(status().isOk())
-			.andDo(document("uptime"));
-	}
+    @Test
+    void getCurrentTimeEndpoint() throws Exception {
+        this.mockMvc.perform(get("/actuator/uptime"))
+            .andExpect(status().isOk())
+            .andDo(document("uptime"));
+    }
 
 }
