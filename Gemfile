@@ -8,7 +8,6 @@ group :jekyll_plugins do
     gem 'jekyll-optional-front-matter', '~> 0.3'
     gem 'jekyll-sitemap', '~> 1.4'
     gem 'jekyll-titles-from-headings', '~> 0.5'
-    gem 'jekyll-asciidoc', '~> 3.0'
     gem 'webrick', '~> 1.7'
 end
 

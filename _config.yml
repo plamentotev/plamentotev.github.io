@@ -20,7 +20,6 @@ plugins:
   - jekyll-default-layout
   - jekyll-titles-from-headings
   - jekyll-optional-front-matter
-  - jekyll-asciidoc
 
 titles_from_headings:
   strip_title: true
@@ -32,9 +31,3 @@ excerpt_separator: <!--more-->
 exclude:
   - README.md
   - examples
-
-asciidoc:
-  excerpt_separator: "\n//more\n"
-asciidoctor:
-  attributes:
-    source-highlighter: rouge
