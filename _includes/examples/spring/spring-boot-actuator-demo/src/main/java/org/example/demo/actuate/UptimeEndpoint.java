@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import java.lang.management.ManagementFactory;
 
 @Component
-@Endpoint(id = "uptime") //<1>
+@Endpoint(id = "uptime") // (1)
 public class UptimeEndpoint {
 
-    @ReadOperation //<2>
+    @ReadOperation // (2)
     public Uptime getUptime() {
         var runtime = ManagementFactory.getRuntimeMXBean();
 
