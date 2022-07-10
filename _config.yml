@@ -27,7 +27,3 @@ titles_from_headings:
 
 show_excerpts: true
 excerpt_separator: <!--more-->
-
-exclude:
-  - README.md
-  - examples
