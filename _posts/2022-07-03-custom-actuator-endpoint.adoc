@@ -1,6 +1,6 @@
 = Implementing Custom Actuator Endpoint
 Plamen Totev
-:demo-path: ../examples/java/spring-boot-actuator-demo
+:demo-path: ../_includes/examples/spring/spring-boot-actuator-demo
 :spring-boot-reference: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle
 
 Spring Boot provides {spring-boot-reference}/#actuator[actuator endpoints] that allows you to monitor or manage your application over JMX or HTTP. To add custom endpoint annotate Spring bean with `@Endpoint`.
