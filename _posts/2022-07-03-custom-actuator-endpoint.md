@@ -29,12 +29,9 @@ For more information check the [reference guide]({{page.spring-reference-url}}/#
 
 Make sure that you have included the `starter-actuator` dependency:
 
-```xml
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-```
+{% highlight xml %}
+{% include_snippet {{page.demo_path}}/pom.xml %}
+{% endhighlight %}
 
 ### /actuator/uptime returns 404 (Not Found)
 
