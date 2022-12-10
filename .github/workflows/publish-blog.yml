@@ -30,9 +30,9 @@ jobs:
         with:
           java-version: '17'
           distribution: temurin
-          cache: maven
+          cache: gradle
       - name: Build Spring Examples
-        run: cd _includes/examples/spring && mvn --batch-mode verify
+        run: cd _includes/examples/gradle && ./gradlew build
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1

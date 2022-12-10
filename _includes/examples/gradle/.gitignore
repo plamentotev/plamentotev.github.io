@@ -1,4 +1,5 @@
 *.iws
 .idea/
 out/
-target/
+.gradle/
+build/

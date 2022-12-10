@@ -1,5 +1,6 @@
 ---
-demo_path: examples/spring/spring-boot-actuator-demo
+demo_path: examples/gradle/spring-boot-actuator-demo
+snippet_path: examples/gradle/spring-boot-actuator-demo/build/generated-snippets/uptime
 spring-reference-url: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle
 ---
 # Implementing Custom Actuator Endpoint
@@ -15,11 +16,11 @@ Spring Boot provides [actuator endpoints]({{page.spring-reference-url}}/#actuato
 
 Accessing the endpoint:
 
-{% include {{page.demo_path}}/target/generated-snippets/uptime/curl-request.md %}
+{% include {{page.snippet_path}}/curl-request.md %}
 
 would return the uptime in JSON format:
 
-{% include {{page.demo_path}}/target/generated-snippets/uptime/response-body.md %}
+{% include {{page.snippet_path}}/response-body.md %}
 
 For more information check the [reference guide]({{page.spring-reference-url}}/#actuator.endpoints.implementing-custom).
 
@@ -29,8 +30,8 @@ For more information check the [reference guide]({{page.spring-reference-url}}/#
 
 Make sure that you have included the `starter-actuator` dependency:
 
-{% highlight xml %}
-{% include_snippet {{page.demo_path}}/pom.xml %}
+{% highlight groovy %}
+{% include_snippet {{page.demo_path}}/build.gradle %}
 {% endhighlight %}
 
 ### /actuator/uptime returns 404 (Not Found)
