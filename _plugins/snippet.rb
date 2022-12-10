@@ -12,7 +12,7 @@ module Jekyll
 
       start_line = start_tag_line + 1
       end_line = end_tag_line - 1
-      return "" if end_line <= start_line
+      return "" if end_line < start_line
 
       snippet_lines = file_lines[start_line..end_line]
       leading_whitespace_chars = snippet_lines[0][/^\s*/]
