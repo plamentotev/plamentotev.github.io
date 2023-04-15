@@ -31,7 +31,7 @@ For more information check the [reference guide]({{page.spring-reference-url}}/#
 Make sure that you have included the `starter-actuator` dependency:
 
 {% highlight groovy %}
-{% include_snippet {{page.demo_path}}/build.gradle %}
+{% include_snippet {{page.demo_path}}/build.gradle.kts %}
 {% endhighlight %}
 
 ### /actuator/uptime returns 404 (Not Found)
