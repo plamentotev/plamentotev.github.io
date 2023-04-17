@@ -36,7 +36,7 @@ Make sure that you have included the `starter-actuator` dependency:
 
 ### /actuator/uptime returns 404 (Not Found)
 
-Due to [security considerations]({{page.spring-reference-url}}/#actuator.endpoints.security), most endpoint by default are disabled over HTTP. Make sure to enable them (after you read the docs):
+Due to [security considerations]({{page.spring-reference-url}}/#actuator.endpoints.security), most endpoint by default are disabled over HTTP. You can enable all endpoints (after you read the docs) by setting `management.endpoints.web.exposure.include`:
 
 {% highlight properties %}
 {% include {{page.demo_path}}/src/main/resources/application.properties %}
