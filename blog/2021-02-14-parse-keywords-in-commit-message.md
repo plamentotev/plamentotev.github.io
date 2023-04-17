@@ -1,7 +1,10 @@
+---
+hide_table_of_contents: true
+---
 # Using `git interpret-trailers` to parse keywords in commit message
 
 While playing around with Git hooks I found one not very popular, but useful, command - `interpret-trailers`.
-Turns out keywords and metadata added (usually) at the end of the commit message are called `trailers`. <!--more-->
+Turns out keywords and metadata added (usually) at the end of the commit message are called `trailers`. <!--truncate-->
 For example in
 
 ```

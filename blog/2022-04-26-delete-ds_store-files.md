@@ -1,9 +1,10 @@
 ---
+hide_table_of_contents: true
 image: /images/og/2022-04-26-delete-ds_store-files.png
 ---
 # How to delete all `.DS_Store` files
 
-If you have ever received zip file created on MacOS, then you know all those annoying `.DS_Store` files popping up all over the place. The good news is that you can delete all  `.DS_Store` files recursively with a simple one liner. <!--more-->
+If you have ever received zip file created on MacOS, then you know all those annoying `.DS_Store` files popping up all over the place. The good news is that you can delete all  `.DS_Store` files recursively with a simple one liner. <!--truncate-->
 
 ```bash
 find -name '.DS_Store' -type f -delete

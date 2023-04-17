@@ -1,0 +1,59 @@
+---
+hide_table_of_contents: true
+---
+import DependencySnippet from '!!raw-loader!@site/src/examples/gradle/spring-boot-actuator-demo/build.gradle.kts';
+import EnableEndpointsSnippet from '!!raw-loader!@site/src/examples/gradle/spring-boot-actuator-demo/src/main/resources/application.properties';
+import UptimeEndpointExampleRequest from '@site/src/examples/gradle/spring-boot-actuator-demo/build/generated-snippets/uptime/curl-request.md';
+import UptimeEndpointExampleResponse from '@site/src/examples/gradle/spring-boot-actuator-demo/build/generated-snippets/uptime/response-body.md';
+import UptimeEndpointSource from '!!raw-loader!@site/src/examples/gradle/spring-boot-actuator-demo/src/main/java/org/example/demo/actuate/UptimeEndpoint.java';
+
+# Implementing Custom Actuator Endpoint
+
+Spring Boot provides [actuator endpoints][actuator-endpoints] that allows you to monitor or manage your application over JMX or HTTP. To add custom endpoint annotate Spring bean with `@Endpoint`.<!--truncate-->
+
+<CodeBlock language="java">{UptimeEndpointSource}</CodeBlock>
+
+1. `@Endpoint` marks the class as Actuator endpoint. For HTTP endpoints `id` specifies the path - `actuator/uptime` in this example.
+2. `@ReadOperation` marks the method as read operation. You can also use `@WriteOperation` and `@DeleteOperation` for respectively write and delete operations.
+
+Accessing the endpoint:
+
+<UptimeEndpointExampleRequest />
+
+would return the uptime in JSON format:
+
+<UptimeEndpointExampleResponse />
+
+For more information check the [reference guide][implement-custom-endpoint].
+
+## Troubleshooting
+
+### The code does not compile
+
+Make sure that you have included the `starter-actuator` dependency:
+
+<Tabs>
+<TabItem value="gradle" label="Gradle">
+    <CodeSnippet code={DependencySnippet} language="kotlin" title="build.gradle.kts" />
+</TabItem>
+<TabItem value="maven" label="Maven">
+
+```xml title="pom.xml"
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+</TabItem>
+</Tabs>
+
+### /actuator/uptime returns 404 (Not Found)
+
+Due to [security considerations][endpoints-secuirty], most endpoint by default are disabled over HTTP. You can enable all endpoints (after you read the docs) by setting `management.endpoints.web.exposure.include`:
+
+<CodeBlock language="properties" title="application.properties">{EnableEndpointsSnippet}</CodeBlock>
+
+[actuator-endpoints]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator
+[implement-custom-endpoint]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.endpoints.implementing-custom
+[endpoints-secuirty]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.endpoints.security
