@@ -1,6 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const path = require('path');
 const {themes} = require('prism-react-renderer');
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -70,4 +71,28 @@ export default {
         additionalLanguages: ['bash', 'java', 'json', 'kotlin', 'properties'],
       },
     }),
+
+    plugins: [
+      // Configure Webpack
+      () => ({
+        configureWebpack() {
+          return {
+            module: {
+              rules: [
+                // When importing files from the example directory, import their source as text
+                {
+                  test: path.resolve(__dirname, 'src/examples/'),
+                  // Excludind markdown files as we want to render them as React components.x
+                  // Loading them as source files would break that.
+                  exclude: [
+                    /\.md$/,
+                  ],
+                  type: 'asset/source',
+                },
+              ],
+            },
+          };
+        },
+      }),
+    ],
 };
