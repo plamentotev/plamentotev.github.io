@@ -3,6 +3,12 @@ name: Deploy Docusaurus site to GitHub Pages
 on:
   # Allows running this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      dryRun:
+        type: boolean
+        required: true
+        default: false
+        description: If `true`, the site would be build but not deployed.
 
 # Allow one concurrent deployment
 concurrency:
@@ -45,6 +51,8 @@ jobs:
 
   # Deployment job
   deploy:
+    # Skip deployment if this is dry run
+    if: ${{ !inputs.dryRun }}
     # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
     permissions:
       pages: write
