@@ -9,6 +9,10 @@ import UptimeEndpointSource from '@site/src/examples/gradle/spring-boot-actuator
 
 # Implementing Custom Actuator Endpoint
 
+[actuator-endpoints]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator
+[implement-custom-endpoint]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.endpoints.implementing-custom
+[endpoints-secuirty]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.endpoints.security
+
 Spring Boot provides [actuator endpoints][actuator-endpoints] that allows you to monitor or manage your application over JMX or HTTP. To add custom endpoint annotate Spring bean with `@Endpoint`.<!--truncate-->
 
 <CodeBlock language="java">{UptimeEndpointSource}</CodeBlock>
@@ -53,7 +57,3 @@ Make sure that you have included the `starter-actuator` dependency:
 Due to [security considerations][endpoints-secuirty], most endpoint by default are disabled over HTTP. You can enable all endpoints (after you read the docs) by setting `management.endpoints.web.exposure.include`:
 
 <CodeBlock language="properties" title="application.properties">{EnableEndpointsSnippet}</CodeBlock>
-
-[actuator-endpoints]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator
-[implement-custom-endpoint]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.endpoints.implementing-custom
-[endpoints-secuirty]: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#actuator.endpoints.security
