@@ -75,6 +75,7 @@ export default {
     plugins: [
       // Configure Webpack
       () => ({
+        name: 'configure-webpack',
         configureWebpack() {
           return {
             module: {
