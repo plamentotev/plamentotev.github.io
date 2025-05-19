@@ -7,6 +7,13 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    allow:
+      - dependency-type: "direct"
+    versioning-strategy: increase-if-necessary
+    groups:
+      dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -15,3 +22,7 @@ updates:
     directory: "/src/examples/gradle/buildSrc"
     schedule:
       interval: "monthly"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
